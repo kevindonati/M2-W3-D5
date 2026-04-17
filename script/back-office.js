@@ -130,28 +130,31 @@ const prodottiEsistenti = () => {
       const contenitore = document.getElementById("contenitore-prodotti")
       for (let i = 0; i < data.length; i++) {
         contenitore.innerHTML += `
-          <div class="col">
-            <div class="card">
-              <img
-                src="${data[i].imageUrl}"
-                class="card-img-top"
-                alt="foto prodotto"
-              />
-              <div class="card-body">
-                <h5 class="card-title">${data[i].name}</h5>
-                <p class="card-text">
-                  ${data[i].description}
-                </p>
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">Brand: ${data[i].brand}</li>
-                <li class="list-group-item">Prezzo: ${data[i].price}€</li>
-              </ul>
-              <div class="card-body sezione-bottoni">
-                <a href="./back-office.html?id=${data[i]._id}"><button type="button" class="btn btn-warning w-100 mb-2">Modifica</button></a>
-              </div>
-            </div>
+<div class="row g-3 mt-3">
+          <div class="col-3 col-lg-2">
+            <h3>Nome prodotto</h3>
+            <p>${data[i].name}</p>
           </div>
+          <div class="col-3 col-lg-2">
+            <h3>Descrizione</h3>
+            <p>${data[i].description}</p>
+          </div>
+          <div class="col-3 col-lg-2 text-end text-lg-end">
+            <h3>Brand</h3>
+            <p>${data[i].brand}</p>
+          </div>
+          <div class="col-3 col-lg-2 text-end text-lg-center">
+            <h3>Prezzo</h3>
+            <p>${data[i].price}€</p>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h3>Modifica</h3>
+            <a href="./back-office.html?id=${data[i]._id}"><button type="button" class="btn btn-warning w-100 mb-2">Modifica</button></a>
+          </div>
+          <div class="col-6 col-lg-2 card-body sezione-bottoni">
+            <h3>Elimina</h3>
+          </div>
+        </div>
         `
       }
       const contenitoreBottoni = document.querySelectorAll(".sezione-bottoni")
